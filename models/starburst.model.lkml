@@ -6,8 +6,7 @@ connection: "satartbust_conn"
 
 datagroup: starburst_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "2 hour"
 }
 
 persist_with: starburst_default_datagroup
-
