@@ -1,7 +1,7 @@
 
-view: sql_runner_query_1 {
+view: sql_runner_query {
   derived_table: {
-    sql: select customer_city,count(1) from datalake_minio.looker.customer  group by customer_city ;;
+    sql: select * from datalake_minio.looker.customer ;;
   }
 
   suggestions: no
@@ -10,20 +10,25 @@ view: sql_runner_query_1 {
     drill_fields: [detail*]
   }
 
-  dimension: customer_city {
-    type: string
-    sql: ${TABLE}.customer_city ;;
+  dimension: c_salutation {
+    type: number
+    sql: ${TABLE}.c_salutation ;;
   }
 
-  dimension: _col1 {
-    type: number
-    sql: ${TABLE}._col1 ;;
+  dimension: c_birth_country {
+    type: string
+    sql: ${TABLE}.c_birth_country ;;
   }
+
+  dimension: c_first_name {
+    type: string
+    sql: ${TABLE}.c_first_name ;;
+  }
+
 
   set: detail {
     fields: [
-        customer_city,
-	_col1
+      c_salutation,c_birth_country,c_first_name
     ]
   }
 }
